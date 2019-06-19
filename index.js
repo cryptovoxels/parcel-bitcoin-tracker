@@ -11,7 +11,7 @@ p.fetch()
       fetch(API_URL)
         .then(r => r.json())
         .then(r => {
-          let price = parseFloat(r.bpi.USD.rate).toFixed(0)
+          let price = r.bpi.USD.rate.replace(/\..+/, '')
           let sign = p.getFeatureById('bitcoin-price')
 
           sign.set({
